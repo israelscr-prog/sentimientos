@@ -115,3 +115,14 @@ def main():
 
 if __name__ == "__main__":
     main()
+
+# 9 Añadido test de almacenamiento y de analizador
+tests/test_analizador.py
+tests/test_almacenamiento.py
+
+Añadido mock test para analizar_por_nivel (basico, intermedio, avanzado)
+- Error implementado para manejar nivel invalido
+- Añadido test de persistencia usando tmp_path para TXT y JSON
+- Tests desacoplados del transformer usando monkeypatch
+- Garantiza una ejecución de pruebas rápida y determinista.
+
