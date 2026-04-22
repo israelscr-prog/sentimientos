@@ -95,3 +95,23 @@ def leer_txt(ruta):
 def leer_json(ruta):
     with open(ruta, "r", encoding="utf-8") as f:
         return json.load(f)
+
+# 8 La raiz del codigo donde se ejecuta
+main.py
+
+from sentimiento.analizador import analizar_por_nivel
+from almacenamiento.guardar import guardar_json, guardar_txt
+
+def main():
+    texto = "El producto llegó rápido, pero la calidad no es lo que esperaba."
+
+    resultado = analizar_por_nivel(texto, nivel="intermedio")
+
+    print(resultado)
+
+    guardar_txt(resultado)
+    guardar_json(resultado)
+
+
+if __name__ == "__main__":
+    main()
