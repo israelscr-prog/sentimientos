@@ -133,3 +133,9 @@ almacenamiento/guardar.py
 - Creación automática de carpetas
 - TXT tipo informe humano
 - JSON estructurado
+
+# 11 Cambio en nombres de (1).png y de (1).py y añadido el .gitignore para no subir:
+
+- resultados
+- .venv/
+- heredado/
