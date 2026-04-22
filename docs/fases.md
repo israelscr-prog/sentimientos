@@ -126,3 +126,10 @@ Añadido mock test para analizar_por_nivel (basico, intermedio, avanzado)
 - Tests desacoplados del transformer usando monkeypatch
 - Garantiza una ejecución de pruebas rápida y determinista.
 
+# 10 Refactorizado el guardar.py para que los formatos de salida sean mas profesionales
+almacenamiento/guardar.py
+
+- Timestamp automático
+- Creación automática de carpetas
+- TXT tipo informe humano
+- JSON estructurado

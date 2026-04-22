@@ -1,10 +1,67 @@
 import json
+import os
+from datetime import datetime
 
-def guardar_txt(resultado, ruta="resultado.txt"):
+
+def _generar_timestamp():
+    return datetime.now().strftime("%Y-%m-%d_%H%M%S")
+
+
+def _asegurar_directorio(ruta):
+    os.makedirs(ruta, exist_ok=True)
+
+
+def guardar_txt(resultado: dict):
+    timestamp = _generar_timestamp()
+    carpeta = "resultados/txt"
+    _asegurar_directorio(carpeta)
+
+    ruta = os.path.join(carpeta, f"analisis_{timestamp}.txt")
+
+    texto = resultado.get("texto", "")
+    basico = resultado.get("basico", {})
+    intermedio = resultado.get("intermedio", {})
+    avanzado = resultado.get("avanzado", {})
+
+    contenido = f"""
+============================================
+ANÁLISIS DE SENTIMIENTO — {timestamp.replace("_", " ")}
+============================================
+
+TEXTO ANALIZADO:
+{texto}
+
+RESULTADO BÁSICO:    {basico.get("sentimiento", "N/A")}
+
+RESULTADO INTERMEDIO: {intermedio.get("sentimiento", "N/A")} | \
+polaridad: {intermedio.get("polaridad", "N/A")} | \
+intensidad: {intermedio.get("intensidad", "N/A")}
+
+JUSTIFICACIÓN:       {avanzado.get("justificacion", "N/A")}
+"""
+
     with open(ruta, "w", encoding="utf-8") as f:
-        f.write(str(resultado))
+        f.write(contenido.strip())
+
+    return ruta
 
 
-def guardar_json(resultado, ruta="resultado.json"):
+def guardar_json(resultado: dict):
+    timestamp = _generar_timestamp()
+    carpeta = "resultados/json"
+    _asegurar_directorio(carpeta)
+
+    ruta = os.path.join(carpeta, f"analisis_{timestamp}.json")
+
+    data = {
+        "timestamp": timestamp,
+        "texto": resultado.get("texto", ""),
+        "basico": resultado.get("basico", {}),
+        "intermedio": resultado.get("intermedio", {}),
+        "avanzado": resultado.get("avanzado", {}),
+    }
+
     with open(ruta, "w", encoding="utf-8") as f:
-        json.dump(resultado, f, indent=4, ensure_ascii=False)
+        json.dump(data, f, indent=4, ensure_ascii=False)
+
+    return ruta
