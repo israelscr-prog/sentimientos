@@ -81,3 +81,17 @@ def guardar_txt(resultado, ruta="resultado.txt"):
 def guardar_json(resultado, ruta="resultado.json"):
     with open(ruta, "w", encoding="utf-8") as f:
         json.dump(resultado, f, indent=4, ensure_ascii=False)
+
+# 7 Funcioned de leer txt y de json
+almacenamiento/leer.py
+
+import json
+
+def leer_txt(ruta):
+    with open(ruta, "r", encoding="utf-8") as f:
+        return f.read()
+
+
+def leer_json(ruta):
+    with open(ruta, "r", encoding="utf-8") as f:
+        return json.load(f)
