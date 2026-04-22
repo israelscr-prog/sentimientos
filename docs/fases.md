@@ -1,0 +1,2 @@
+# Creacion de estroctura
+mkdir sentimiento,almacenamiento,resultados,tests,docs; mkdir resultados\txt,resultados\json; ni sentimiento\__init__.py,sentimiento\cliente.py,sentimiento\analizador.py,sentimiento\niveles.py,sentimiento\multitexto.py,almacenamiento\__init__.py,almacenamiento\guardar.py,almacenamiento\leer.py,tests\test_analizador.py,tests\test_almacenamiento.py,main.py,requirements.txt,README.md
