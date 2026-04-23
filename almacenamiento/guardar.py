@@ -12,16 +12,9 @@ def _asegurar_directorio(ruta):
 
 
 def guardar_txt(resultado: dict, ruta: str = None):
-    """
-    Guarda el resultado en formato TXT.
-    Si no se proporciona ruta, se genera automáticamente.
-    """
-
-    # 🔒 Validación
     if not isinstance(resultado, dict):
         raise TypeError("El resultado debe ser un diccionario")
 
-    # 📁 Ruta automática o manual (para tests)
     if ruta is None:
         timestamp = _generar_timestamp()
         carpeta = "resultados/txt"
@@ -30,12 +23,16 @@ def guardar_txt(resultado: dict, ruta: str = None):
     else:
         ruta = str(ruta)
 
-    texto = resultado.get("texto", "")
-    basico = resultado.get("basico", {})
-    intermedio = resultado.get("intermedio", {})
-    avanzado = resultado.get("avanzado", {})
+    # 🔥 SOPORTE FLEXIBLE
+    if "mensaje" in resultado:
+        contenido = resultado["mensaje"]
+    else:
+        texto = resultado.get("texto", "")
+        basico = resultado.get("basico", {})
+        intermedio = resultado.get("intermedio", {})
+        avanzado = resultado.get("avanzado", {})
 
-    contenido = f"""
+        contenido = f"""
 ============================================
 ANÁLISIS DE SENTIMIENTO
 ============================================
@@ -59,16 +56,9 @@ JUSTIFICACIÓN:       {avanzado.get("justificacion", "N/A")}
 
 
 def guardar_json(resultado: dict, ruta: str = None):
-    """
-    Guarda el resultado en formato JSON.
-    Si no se proporciona ruta, se genera automáticamente.
-    """
-
-    # 🔒 Validación
     if not isinstance(resultado, dict):
         raise TypeError("El resultado debe ser un diccionario")
 
-    # 📁 Ruta automática o manual
     if ruta is None:
         timestamp = _generar_timestamp()
         carpeta = "resultados/json"
@@ -77,13 +67,17 @@ def guardar_json(resultado: dict, ruta: str = None):
     else:
         ruta = str(ruta)
 
-    data = {
-        "timestamp": _generar_timestamp(),
-        "texto": resultado.get("texto", ""),
-        "basico": resultado.get("basico", {}),
-        "intermedio": resultado.get("intermedio", {}),
-        "avanzado": resultado.get("avanzado", {}),
-    }
+    # 🔥 SOPORTE FLEXIBLE
+    if "mensaje" in resultado or resultado == {}:
+        data = resultado
+    else:
+        data = {
+            "timestamp": _generar_timestamp(),
+            "texto": resultado.get("texto", ""),
+            "basico": resultado.get("basico", {}),
+            "intermedio": resultado.get("intermedio", {}),
+            "avanzado": resultado.get("avanzado", {}),
+        }
 
     with open(ruta, "w", encoding="utf-8") as f:
         json.dump(data, f, indent=4, ensure_ascii=False)
