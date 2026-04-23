@@ -1,6 +1,6 @@
 # 🔹 Core IA
 transformers==4.41.2
-torch 
+torch==2.11.0
 
 # 🔹 Utilidades
 python-dotenv==1.0.1
