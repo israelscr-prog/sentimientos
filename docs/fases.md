@@ -140,8 +140,16 @@ almacenamiento/guardar.py
 - .venv/
 - heredado/
 
-# 12 (23/04/26) 10:00am / Mejora de testing y robustez
+# 12 (23/04/26) 10:00am / Mejora de testing y robustez con cambios en archivos guardar.py y analizador.py
  
 - Cubren casos: felices, borde y de error
 - Intoducion de validaciones
 - Usos de: pytest, tmp_path y de mocks 
+
+# 13 Integracion Continua CI/CD de pipeline con GitHub Actions
+
+- Ejecucion automatica de tests con pytest
+- Validaciones en multiples versiones de python
+- Instalacion automatica de dependencias
+- Configuracion de entorno para imports (PYTHONPATH)
+

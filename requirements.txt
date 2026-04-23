@@ -1,0 +1,17 @@
+# 🔹 Core IA
+transformers==4.41.2
+torch==2.3.1
+
+# 🔹 Utilidades
+python-dotenv==1.0.1
+
+# 🔹 Testing
+pytest==9.0.2
+pytest-cov==5.0.0
+
+# 🔹 Linting
+ruff==0.5.0
+flake8==7.0.0
+
+# 🔹 Seguridad
+bandit==1.7.9
