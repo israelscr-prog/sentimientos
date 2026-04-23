@@ -11,12 +11,24 @@ def _asegurar_directorio(ruta):
     os.makedirs(ruta, exist_ok=True)
 
 
-def guardar_txt(resultado: dict):
-    timestamp = _generar_timestamp()
-    carpeta = "resultados/txt"
-    _asegurar_directorio(carpeta)
+def guardar_txt(resultado: dict, ruta: str = None):
+    """
+    Guarda el resultado en formato TXT.
+    Si no se proporciona ruta, se genera automáticamente.
+    """
 
-    ruta = os.path.join(carpeta, f"analisis_{timestamp}.txt")
+    # 🔒 Validación
+    if not isinstance(resultado, dict):
+        raise TypeError("El resultado debe ser un diccionario")
+
+    # 📁 Ruta automática o manual (para tests)
+    if ruta is None:
+        timestamp = _generar_timestamp()
+        carpeta = "resultados/txt"
+        _asegurar_directorio(carpeta)
+        ruta = os.path.join(carpeta, f"analisis_{timestamp}.txt")
+    else:
+        ruta = str(ruta)
 
     texto = resultado.get("texto", "")
     basico = resultado.get("basico", {})
@@ -25,7 +37,7 @@ def guardar_txt(resultado: dict):
 
     contenido = f"""
 ============================================
-ANÁLISIS DE SENTIMIENTO — {timestamp.replace("_", " ")}
+ANÁLISIS DE SENTIMIENTO
 ============================================
 
 TEXTO ANALIZADO:
@@ -46,15 +58,27 @@ JUSTIFICACIÓN:       {avanzado.get("justificacion", "N/A")}
     return ruta
 
 
-def guardar_json(resultado: dict):
-    timestamp = _generar_timestamp()
-    carpeta = "resultados/json"
-    _asegurar_directorio(carpeta)
+def guardar_json(resultado: dict, ruta: str = None):
+    """
+    Guarda el resultado en formato JSON.
+    Si no se proporciona ruta, se genera automáticamente.
+    """
 
-    ruta = os.path.join(carpeta, f"analisis_{timestamp}.json")
+    # 🔒 Validación
+    if not isinstance(resultado, dict):
+        raise TypeError("El resultado debe ser un diccionario")
+
+    # 📁 Ruta automática o manual
+    if ruta is None:
+        timestamp = _generar_timestamp()
+        carpeta = "resultados/json"
+        _asegurar_directorio(carpeta)
+        ruta = os.path.join(carpeta, f"analisis_{timestamp}.json")
+    else:
+        ruta = str(ruta)
 
     data = {
-        "timestamp": timestamp,
+        "timestamp": _generar_timestamp(),
         "texto": resultado.get("texto", ""),
         "basico": resultado.get("basico", {}),
         "intermedio": resultado.get("intermedio", {}),

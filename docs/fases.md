@@ -139,3 +139,9 @@ almacenamiento/guardar.py
 - resultados
 - .venv/
 - heredado/
+
+# 12 (23/04/26) 10:00am / Mejora de testing y robustez
+ 
+- Cubren casos: felices, borde y de error
+- Intoducion de validaciones
+- Usos de: pytest, tmp_path y de mocks 
