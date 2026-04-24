@@ -187,14 +187,18 @@ Ejecucion de test mas agresivos y ejecucion automaticamente de todos los test IN
 
 # 21 Refactorización del analizador
 
-# 22 Creacion de documentos
+# 22 (fin de trabajo 13:50)Creacion de documentos
 - almacenamiento.md
 - api_referencia.md
 - arquitectura.md
 
-# 23 Documentes Actualizado:
+# 23  Documentes Actualizado:
 - README.md
 - arquitectura
 - almacenamiento.md
 - api_referencia.md
 
+# 24 (vuelta al trabajo 15:45) Actualizacion de carpetas y de .gitignore
+- resultados
+- resultados/json con .gitkeep
+- resultados/txt con .gitkeep

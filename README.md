@@ -216,6 +216,8 @@ almacenamiento.guardar  ←→  almacenamiento.leer
 
 ## 👤 Autor
 
+Israel C. Rojas - Programador con IA - Hostelero - Emprendedor
+
 Proyecto desarrollado como ejercicio de refactorización profesional para curso de desarrollo con IA.
 
 ---

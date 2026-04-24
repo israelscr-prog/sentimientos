@@ -6,3 +6,10 @@ resultados/
 heredado/
 
 qodo/
+
+# Ignorar resultados pero mantener la estructura
+resultados/txt/*
+resultados/json/*
+!resultados/txt/.gitkeep
+!resultados/json/.gitkeep
+
