@@ -202,3 +202,8 @@ Ejecucion de test mas agresivos y ejecucion automaticamente de todos los test IN
 - resultados
 - resultados/json con .gitkeep
 - resultados/txt con .gitkeep
+
+# 25 Anadido GUI cual es interfaz.py, info en interfaz.md
+Hecho por la IA con referencia de img interfaz_Sentimiento.png
+Documentado sobre el GUI en interfaz.md
+Verificado y revisado por DESAROLLADOR
