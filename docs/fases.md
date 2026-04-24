@@ -214,3 +214,5 @@ Para importar el interfaz
 # 27 Anadido funcion listar_archivos en leer.py
 
 # 28 Cambios de doble de llamada a una en guardar.py
+
+# 29 Cambios en el .gitignore
