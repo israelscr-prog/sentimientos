@@ -17,3 +17,6 @@ resultados/json/*
 *.pt          # modelos PyTorch
 *.bin         # modelos grandes
 env/          # entorno virtual
+
+
+*.pyc
