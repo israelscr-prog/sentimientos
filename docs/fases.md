@@ -192,4 +192,9 @@ Ejecucion de test mas agresivos y ejecucion automaticamente de todos los test IN
 - api_referencia.md
 - arquitectura.md
 
-# 23 README.md Actualizado
+# 23 Documentes Actualizado:
+- README.md
+- arquitectura
+- almacenamiento.md
+- api_referencia.md
+
