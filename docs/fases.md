@@ -179,3 +179,5 @@ Cambios:
 - Manejo de casos borde (texto vacío)
 
 # 18 Refactorización del analizador
+
+# 19 Cambios en funcion en test_analizador
