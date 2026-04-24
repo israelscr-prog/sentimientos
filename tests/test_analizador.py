@@ -1,18 +1,27 @@
 import pytest
+from unittest.mock import MagicMock
 from sentimiento.analizador import analizar_por_nivel
 
-class MockPipeline:
-    """Mock de pipeline que simula sentiment-analysis"""
-    def __call__(self, texto):
-        return [{"label": "POSITIVE", "score": 0.95}]
-
-@pytest.fixture
-def mock_get_model(monkeypatch):
-    """Mock de get_model() que devuelve nuestro MockPipeline"""
+@pytest.fixture(autouse=True)  # ← SE EJECUTA AUTOMÁTICAMENTE EN TODOS LOS TESTS
+def mock_pipeline_global(monkeypatch):
+    """Mock AGRESIVO que bloquea transformers ANTES de que se cargue"""
+    
+    # Mock 1: Intercepta get_model()
     def mock_get_model():
+        class MockPipeline:
+            def __call__(self, texto, **kwargs):
+                return [{"label": "POSITIVE", "score": 0.95}]
+        return MockPipeline()
+    
+    # Mock 2: Intercepta pipeline() directamente (doble seguridad)
+    def mock_pipeline(*args, **kwargs):
+        class MockPipeline:
+            def __call__(self, texto, **kwargs):
+                return [{"label": "POSITIVE", "score": 0.95}]
         return MockPipeline()
     
     monkeypatch.setattr("sentimiento.cliente.get_model", mock_get_model)
+    monkeypatch.setattr("transformers.pipelines.pipeline", mock_pipeline)
 
 # ===========================================
 # CASOS FELICES (Happy Path)
