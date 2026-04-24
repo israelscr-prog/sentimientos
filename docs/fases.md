@@ -210,3 +210,6 @@ Verificado y revisado por DESAROLLADOR
 
 # 26 main.py actualizado
 Para importar el interfaz   
+
+# 27 Anadido listar_archivos en leer.py
+
