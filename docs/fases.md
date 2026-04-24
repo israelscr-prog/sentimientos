@@ -211,5 +211,6 @@ Verificado y revisado por DESAROLLADOR
 # 26 main.py actualizado
 Para importar el interfaz   
 
-# 27 Anadido listar_archivos en leer.py
+# 27 Anadido funcion listar_archivos en leer.py
 
+# 28 Cambios de doble de llamada a una en guardar.py

@@ -14,3 +14,14 @@ flake8==7.0.0
 
 # 🔹 Seguridad
 bandit==1.7.9
+
+coverage==7.13.5
+customtkinter==5.2.2
+
+python-dateutil==2.9.0.post0
+PyYAML==6.0.3
+tiktoken==0.12.0
+pytest-mock==3.15.1 
+
+torch==2.11.0
+pipeline==0.1.0

@@ -13,3 +13,7 @@ resultados/json/*
 !resultados/txt/.gitkeep
 !resultados/json/.gitkeep
 
+
+*.pt          # modelos PyTorch
+*.bin         # modelos grandes
+env/          # entorno virtual

@@ -37,8 +37,10 @@ def guardar_txt(resultado: dict, ruta: Path):
 ANÁLISIS DE SENTIMIENTO
 ============================================
 
+
 TEXTO ANALIZADO:
 {texto}
+
 
 RESULTADO BÁSICO: {basico.get("sentimiento", "N/A")}
 RESULTADO INTERMEDIO: {intermedio.get("sentimiento", "N/A")}
@@ -69,8 +71,8 @@ def guardar_json(resultado: dict, ruta: Path):
     return ruta
 
 
-# 🚀 FUNCIÓN PRINCIPAL 
-def guardar_resultado(texto_entrada: str, resultados: dict) -> dict:
+# 🚀 FUNCIÓN PRINCIPAL
+def guardar_resultado(resultados: dict) -> dict:
     """
     Orquesta el guardado en TXT y JSON.
 
@@ -86,9 +88,6 @@ def guardar_resultado(texto_entrada: str, resultados: dict) -> dict:
 
     ruta_txt = CARPETA_TXT / f"{nombre_base}.txt"
     ruta_json = CARPETA_JSON / f"{nombre_base}.json"
-
-    # Añadir texto al resultado
-    resultados["texto"] = texto_entrada
 
     guardar_txt(resultados, ruta_txt)
     guardar_json(resultados, ruta_json)
