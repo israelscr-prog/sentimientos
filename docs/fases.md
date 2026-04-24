@@ -184,3 +184,5 @@ Cambios:
 
 # 20 Mock mas agresivo
 Ejecucion de test mas agresivos y ejecucion automaticamente de todos los test INDEPENDIENTEMENTE de PyTorch/TensorFlow/transformers! 
+
+# 21 Refactorización del analizador
