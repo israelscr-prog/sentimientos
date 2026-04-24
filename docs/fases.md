@@ -166,3 +166,6 @@ almacenamiento/guardar.py
 - Leer analisis en formato JSON
 - Leer analisis en formato TXT
 - Buscar por fecha
+
+# 16 ** IMPORTANTE** Se ha degradado las versiones de PYTHON 3.14 y 3.13 a la version 3.11
+- El transformer no es conpatible con verisones de phyton mayores al 3.11
