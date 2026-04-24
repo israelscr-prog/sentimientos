@@ -9,6 +9,21 @@ Documentación técnica del módulo de interfaz gráfica desarrollado con **Tkin
 La interfaz gráfica permite al usuario analizar textos en tiempo real, visualizar los resultados en tres niveles de detalle, consultar el historial de análisis guardados y guardar resultados manualmente. Está implementada como una clase Python que encapsula toda la lógica visual y de interacción.
 
 ---
+## Componentes de la interfaz
+
+| Componente | Descripción | Funcional |
+|------------|-------------|:-----------:|
+| Área de texto de entrada | Campo para introducir el texto a analizar | ✅ |
+| Botón Analizar Sentimiento | Lanza el análisis en los 3 niveles | ✅ |
+| Botón Limpiar | Limpia todos los campos | ✅ |
+| Botón Guardar | Guarda manualmente en TXT y JSON | ✅ |
+| Pestaña Resultados por Nivel | Tabla con Básico / Intermedio / Avanzado | ✅ |
+| Pestaña Análisis Detallado | Emociones y polaridad extendida | ✅ |
+| Pestaña Justificación | Explicación del análisis + recomendación | ✅ |
+| Pestaña Historial | Lista de análisis guardados | ✅ |
+| Panel ¿Qué significa la polaridad? | Leyenda explicativa | ✅ |
+| Barra de estado | Confirma guardado automático | ✅ |
+---
 
 ## Instalación de Tkinter
 
