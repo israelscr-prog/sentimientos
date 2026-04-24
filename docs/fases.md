@@ -146,7 +146,7 @@ almacenamiento/guardar.py
 - Intoducion de validaciones
 - Usos de: pytest, tmp_path y de mocks 
 
-# 13 Integracion Continua CI/CD de pipeline con GitHub Actions
+# 13 (13:30pm) Integracion Continua CI/CD de pipeline con GitHub Actions
 
 - Ejecucion automatica de tests con pytest
 - Validaciones en multiples versiones de python
@@ -160,3 +160,9 @@ almacenamiento/guardar.py
 - Soporte para múltiples formatos de entrada (simple y estructurado)
 - Funciones atómicas: guardar_txt, guardar_json
 - Función orquestadora: guardar_resultado
+
+# 15 Implementación del módulo de lectura
+- Lista de de archivos guardados
+- Leer analisis en formato JSON
+- Leer analisis en formato TXT
+- Buscar por fecha
