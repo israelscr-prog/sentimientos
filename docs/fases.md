@@ -216,3 +216,5 @@ Para importar el interfaz
 # 28 Cambios de doble de llamada a una en guardar.py
 
 # 29 Cambios en el .gitignore
+
+# 30 Anadido MemoriaFinal.md
