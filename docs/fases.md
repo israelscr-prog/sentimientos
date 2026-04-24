@@ -153,3 +153,10 @@ almacenamiento/guardar.py
 - Instalacion automatica de dependencias
 - Configuracion de entorno para imports (PYTHONPATH)
 
+# 14 (24/04/26) 10:00am / Implementación del módulo de almacenamiento
+- Creación automática de carpetas (resultados/txt, resultados/json)
+- Generación de nombres únicos mediante timestamp
+- Evita la sobreescritura de archivos
+- Soporte para múltiples formatos de entrada (simple y estructurado)
+- Funciones atómicas: guardar_txt, guardar_json
+- Función orquestadora: guardar_resultado

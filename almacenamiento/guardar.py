@@ -1,29 +1,29 @@
 import json
-import os
 from datetime import datetime
+from pathlib import Path
 
 
+# 📁 Carpetas base
+CARPETA_TXT = Path("resultados/txt")
+CARPETA_JSON = Path("resultados/json")
+
+
+# 🕒 Generar timestamp único
 def _generar_timestamp():
     return datetime.now().strftime("%Y-%m-%d_%H%M%S")
 
 
-def _asegurar_directorio(ruta):
-    os.makedirs(ruta, exist_ok=True)
+# 📁 Crear carpetas si no existen
+def _crear_carpetas():
+    CARPETA_TXT.mkdir(parents=True, exist_ok=True)
+    CARPETA_JSON.mkdir(parents=True, exist_ok=True)
 
 
-def guardar_txt(resultado: dict, ruta: str = None):
+# 🧱 Guardar TXT (función testable)
+def guardar_txt(resultado: dict, ruta: Path):
     if not isinstance(resultado, dict):
         raise TypeError("El resultado debe ser un diccionario")
 
-    if ruta is None:
-        timestamp = _generar_timestamp()
-        carpeta = "resultados/txt"
-        _asegurar_directorio(carpeta)
-        ruta = os.path.join(carpeta, f"analisis_{timestamp}.txt")
-    else:
-        ruta = str(ruta)
-
-    # 🔥 SOPORTE FLEXIBLE
     if "mensaje" in resultado:
         contenido = resultado["mensaje"]
     else:
@@ -40,34 +40,20 @@ ANÁLISIS DE SENTIMIENTO
 TEXTO ANALIZADO:
 {texto}
 
-RESULTADO BÁSICO:    {basico.get("sentimiento", "N/A")}
-
-RESULTADO INTERMEDIO: {intermedio.get("sentimiento", "N/A")} | \
-polaridad: {intermedio.get("polaridad", "N/A")} | \
-intensidad: {intermedio.get("intensidad", "N/A")}
-
-JUSTIFICACIÓN:       {avanzado.get("justificacion", "N/A")}
+RESULTADO BÁSICO: {basico.get("sentimiento", "N/A")}
+RESULTADO INTERMEDIO: {intermedio.get("sentimiento", "N/A")}
+JUSTIFICACIÓN: {avanzado.get("justificacion", "N/A")}
 """
 
-    with open(ruta, "w", encoding="utf-8") as f:
-        f.write(contenido.strip())
-
+    ruta.write_text(contenido.strip(), encoding="utf-8")
     return ruta
 
 
-def guardar_json(resultado: dict, ruta: str = None):
+# 🧱 Guardar JSON (función testable)
+def guardar_json(resultado: dict, ruta: Path):
     if not isinstance(resultado, dict):
         raise TypeError("El resultado debe ser un diccionario")
 
-    if ruta is None:
-        timestamp = _generar_timestamp()
-        carpeta = "resultados/json"
-        _asegurar_directorio(carpeta)
-        ruta = os.path.join(carpeta, f"analisis_{timestamp}.json")
-    else:
-        ruta = str(ruta)
-
-    # 🔥 SOPORTE FLEXIBLE
     if "mensaje" in resultado or resultado == {}:
         data = resultado
     else:
@@ -79,7 +65,35 @@ def guardar_json(resultado: dict, ruta: str = None):
             "avanzado": resultado.get("avanzado", {}),
         }
 
-    with open(ruta, "w", encoding="utf-8") as f:
-        json.dump(data, f, indent=4, ensure_ascii=False)
-
+    ruta.write_text(json.dumps(data, indent=4, ensure_ascii=False), encoding="utf-8")
     return ruta
+
+
+# 🚀 FUNCIÓN PRINCIPAL 
+def guardar_resultado(texto_entrada: str, resultados: dict) -> dict:
+    """
+    Orquesta el guardado en TXT y JSON.
+
+    - Crea carpetas si no existen
+    - Usa timestamp único
+    - No sobreescribe archivos
+    """
+
+    _crear_carpetas()
+
+    timestamp = _generar_timestamp()
+    nombre_base = f"analisis_{timestamp}"
+
+    ruta_txt = CARPETA_TXT / f"{nombre_base}.txt"
+    ruta_json = CARPETA_JSON / f"{nombre_base}.json"
+
+    # Añadir texto al resultado
+    resultados["texto"] = texto_entrada
+
+    guardar_txt(resultados, ruta_txt)
+    guardar_json(resultados, ruta_json)
+
+    return {
+        "txt": str(ruta_txt),
+        "json": str(ruta_json)
+    }
