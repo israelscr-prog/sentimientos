@@ -1,22 +1,29 @@
+# Entorno virtual
+env/
 .venv/
+
+# Python
 __pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Tests
 .pytest_cache/
 
-resultados/
-heredado/
+# Modelos PyTorch y HuggingFace
+*.pt
+*.bin
+*.safetensors
 
-qodo/
-
-# Ignorar resultados pero mantener la estructura
+# Resultados (mantener estructura)
 resultados/txt/*
 resultados/json/*
 !resultados/txt/.gitkeep
 !resultados/json/.gitkeep
 
-
-*.pt          # modelos PyTorch
-*.bin         # modelos grandes
-env/          # entorno virtual
-
-
-*.pyc
+# Otros
+resultados/
+heredado/
+qodo/
+.DS_Store
