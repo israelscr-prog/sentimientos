@@ -207,3 +207,6 @@ Ejecucion de test mas agresivos y ejecucion automaticamente de todos los test IN
 Hecho por la IA con referencia de img interfaz_Sentimiento.png
 Documentado sobre el GUI en interfaz.md
 Verificado y revisado por DESAROLLADOR
+
+# 26 main.py actualizado
+Para importar el interfaz   
