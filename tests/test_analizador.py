@@ -11,9 +11,14 @@ class MockModel:
 
 
 @pytest.fixture
-def mock_model(monkeypatch):
-    from sentimiento import analizador
-    monkeypatch.setattr(analizador, "model", MockModel())
+def mock_get_model(monkeypatch):
+    """Mock de get_model() en lugar de 'model'"""
+    from sentimiento.cliente import get_model
+    
+    monkeypatch.setattr(
+        "sentimiento.cliente.get_model", 
+        lambda: MockModel()
+    )
 
 
 # ✅ CASOS FELICES

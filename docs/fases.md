@@ -177,3 +177,5 @@ Cambios:
 - Implementación de lazy loading del modelo
 - Validación de entradas
 - Manejo de casos borde (texto vacío)
+
+# 18 Refactorización del analizador
