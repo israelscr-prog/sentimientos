@@ -186,3 +186,8 @@ Cambios:
 Ejecucion de test mas agresivos y ejecucion automaticamente de todos los test INDEPENDIENTEMENTE de PyTorch/TensorFlow/transformers! 
 
 # 21 Refactorización del analizador
+
+# 22 Creacion de documentos
+- almacenamiento.md
+- api_referencia.md
+- arquitectura.md
