@@ -5,9 +5,6 @@ from .niveles import (
     analizar_avanzado
 )
 
-# Inicialización del modelo (mockeable en tests)
-model = get_model()
-
 
 def analizar_por_nivel(texto: str, nivel: str = "basico"):
     """
@@ -27,6 +24,17 @@ def analizar_por_nivel(texto: str, nivel: str = "basico"):
 
     if nivel not in ["basico", "intermedio", "avanzado"]:
         raise ValueError("Nivel no válido")
+
+    # 🧪 Caso borde: texto vacío
+    if texto.strip() == "":
+        return {
+            "nivel": nivel,
+            "sentimiento": "neutro",
+            "confianza": 0.0
+        }
+
+    # 🔥 Lazy loading del modelo (CLAVE)
+    model = get_model()
 
     # ⚙️ Lógica principal
     if nivel == "basico":

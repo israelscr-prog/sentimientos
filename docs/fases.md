@@ -169,3 +169,11 @@ almacenamiento/guardar.py
 
 # 16 ** IMPORTANTE** Se ha degradado las versiones de PYTHON 3.14 y 3.13 a la version 3.11
 - El transformer no es conpatible con verisones de phyton mayores al 3.11
+
+# 17 Refactorización del analizador
+Se eliminó la inicialización global del modelo para evitar efectos secundarios en tiempo de importación.
+
+Cambios:
+- Implementación de lazy loading del modelo
+- Validación de entradas
+- Manejo de casos borde (texto vacío)
